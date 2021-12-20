@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Stock</title>
+    <style>
+        html, body, div, span {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-weight: inherit;
+            font-style: inherit;
+            font-size: 100%;
+            font-family: inherit;
+            vertical-align: baseline;
+        }
+        body {
+            background-color: #F3F3F3;
+        }
+        *:focus {
+            outline: none;
+        }
+        nav {
+            background: linear-gradient(90deg, #007dfe 0%, rgba(0,162,255,1) 37%, rgba(0,194,254,1) 79%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5em;
+        }
+        .logo {
+            /* margin-left: 5em; */
+        }
+        .logo > span{
+            font-size: 1.5em;
+            color: #ffffff;
+        }
+
+        nav > .nav-menu {
+            display: flex;
+            /* margin-right: 5em; */
+        }
+        .nav-menu-list {
+            display: flex;
+            justify-content: space-around;
+        }
+        .nav-menu-list > ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            
+        }
+        .nav-menu-list > ul > li {
+            flex: 0 0 content;
+            padding: 10px;
+            color: whitesmoke;
+        }
+
+        .nav-menu-list > button {
+            padding: 10px;
+            margin: 20px;
+            color: whitesmoke;
+            background-color: rgb(204, 60, 60);
+            border: 1px solid rgb(109, 9, 9);
+            border-radius: 2px;
+        }
+        header {
+            margin: .5em 0;
+            display: flex;
+        }
+        header > div {
+            flex: 0 0 content;
+        }
+        .header-btn-container {
+            display: flex;
+            flex-direction: column;
+            width: 5em;
+        }
+        .stock-count {
+            color: #2aca76;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .brand-btn {
+            background: linear-gradient(90deg, #2aca76 0%, #32e079 28%, #36ed7d 79%);
+            border: 1px solid #32e079;
+            color: whitesmoke;
+
+        }
+        .buy-funds-btn {
+            padding: 1.5em 9.4em;
+            font-size: 20px;
+        }
+        .header-stocks-container {
+            display: flex;
+            margin-left: .5em;
+            flex-wrap: wrap;
+
+        }
+        .header-stocks-container > .header-stock {
+            /* flex: 1 1 auto; */
+        }
+        .header-stock {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffffff;
+            padding: .5em 1em;
+            border-radius: 3px;
+            box-shadow: -2px 5px 6px 0px #bebebe;
+            margin-right: .5em;
+        }
+        .header-stock * {
+            flex: 1 1 content;
+        }
+        .header-stock > .stock-img {
+            width: 4em;
+        }
+        .header-stock > span:nth-child(2) {
+            color: #007dfe;
+        }
+        .header-stock > span:last-child {
+            color: #2aca76;
+        }
+        section {
+            margin: 0 4em 0 5em;
+            /* margin: 0 11em; */
+            overflow: hidden;
+        }
+        .search {
+            width: 96%;
+        }
+
+        .search > input {
+            border: none;
+            padding: 1em;
+            width: 100%;
+            font-size: 1em;
+        }
+
+        .stock-grid {
+            margin: 0.5em 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+        }
+
+        .stock {
+            height: 12em;
+            background-color: #ffffff;
+            padding-top: .5em;
+            flex: 0 0 auto;
+            margin-right: .6em;
+            margin-bottom: 1em;
+        }
+        .stock-img-container {
+            text-align: center;
+        }
+        .stock-img {
+            width: 5em;
+        }
+
+        .stock-details {
+            margin-top: 1em;
+            display: flex;
+            border-top: 1px solid #cecece;
+        }
+        .stock-name {
+            display: flex;
+            flex-direction: column;
+            padding: 1em 1em 0 1em;
+        }
+
+        .stock-btn {
+            padding: 1em;
+            border: none;
+        }
+        .stock-name > span:first-child {
+            color: #007dfe;
+        }
+        .stock-name > span:last-child {
+            color: #2aca76;
+        }
+    
+
+    </style>
+</head>
+<body>
+    <main>
+        <nav>
+            <div class="logo">
+                <!-- <img> -->
+                <span>RP</span>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-menu-list">
+                    <ul>
+                        <li>Home</li>
+                        <li>Explore</li>
+                        <li>Discord</li>
+                        <li>Support</li>
+                        <li>Sponsorship</li>
+                        <li>History</li>
+                        <li>Transactions</li>
+                        <li>Settings</li>
+                        <li>My Shop</li>
+                        <li>Admin Panel</li>
+                    </ul>
+                    <button>Logout</button>
+
+                </div>
+            </div>
+
+        </nav>
+        <section>
+            <header>
+                <div class="header-btn-container">
+                    <div class="stock-count">Stock 1.5k</div>
+                    <button class="buy-funds-btn brand-btn">BUY FUNDS</button>
+                </div>
+                <div class="header-stocks-container">
+                    <div class="header-stock">
+                        <img class="stock-img" src="./assests/sword.png">
+                        <span>Adurite Antlers</span>
+                        <span>Sold for $49.00</span>
+                    </div>
+                    <div class="header-stock">
+                        <img class="stock-img" src="./assests/sword.png">
+                        <span>Adurite Antlers</span>
+                        <span>Sold for $49.00</span>
+                    </div>
+                    <div class="header-stock">
+                        <img class="stock-img" src="./assests/sword.png">
+                        <span>Adurite Antlers</span>
+                        <span>Sold for $49.00</span>
+                    </div>
+                    <div class="header-stock">
+                        <img class="stock-img" src="./assests/sword.png">
+                        <span>Adurite Antlers</span>
+                        <span>Sold for $49.00</span>
+                    </div>
+                    <div class="header-stock">
+                        <img class="stock-img" src="./assests/sword.png">
+                        <span>Adurite Antlers</span>
+                        <span>Sold for $49.00</span>
+                    </div>
+                    <div class="header-stock">
+                        <img class="stock-img" src="./assests/sword.png">
+                        <span>Adurite Antlers</span>
+                        <span>Sold for $49.00</span>
+                    </div>
+                    <div class="header-stock">
+                        <img class="stock-img" src="./assests/sword.png">
+                        <span>Adurite Antlers</span>
+                        <span>Sold for $49.00</span>
+                    </div>
+                    <div class="header-stock">
+                        <img class="stock-img" src="./assests/sword.png">
+                        <span>Adurite Antlers</span>
+                        <span>Sold for $49.00</span>
+                    </div>
+                    
+                </div>
+
+            </header>
+            <div class="search">
+                <input placeholder="Search" />
+            </div>
+        </section>
+        <!-- Stock Grid Start -->
+        <section>
+            <div class="stock-grid">
+                <div class="stock">
+                    <div class="stock-img-container">
+                        <img class="stock-img" src="./assests/sword-shield.png" >
+                    </div>
+                    <div class="stock-details">
+                        <div class="stock-name">
+                            <span>Valkyrie Helmet</span> 
+                            <span> 160.7k+</span>
+                        </div>
+                        <button class="stock-btn brand-btn">$540</button>
+                    </div>
+
+                </div>
+                <div class="stock">
+                    <div class="stock-img-container">
+                        <img class="stock-img" src="./assests/sword-shield.png" >
+                    </div>
+                    <div class="stock-details">
+                        <div class="stock-name">
+                            <span>Valkyrie Helmet</span> 
+                            <span> 160.7k+</span>
+                        </div>
+                        <button class="stock-btn brand-btn">$540</button>
+                    </div>
+
+                </div>
+                <div class="stock">
+                    <div class="stock-img-container">
+                        <img class="stock-img" src="./assests/sword-shield.png" >
+                    </div>
+                    <div class="stock-details">
+                        <div class="stock-name">
+                            <span>Valkyrie Helmet</span> 
+                            <span> 160.7k+</span>
+                        </div>
+                        <button class="stock-btn brand-btn">$540</button>
+                    </div>
+
+                </div>
+                <div class="stock">
+                    <div class="stock-img-container">
+                        <img class="stock-img" src="./assests/sword-shield.png" >
+                    </div>
+                    <div class="stock-details">
+                        <div class="stock-name">
+                            <span>Valkyrie Helmet</span> 
+                            <span> 160.7k+</span>
+                        </div>
+                        <button class="stock-btn brand-btn">$540</button>
+                    </div>
+
+                </div>
+                <div class="stock">
+                    <div class="stock-img-container">
+                        <img class="stock-img" src="./assests/sword-shield.png" >
+                    </div>
+                    <div class="stock-details">
+                        <div class="stock-name">
+                            <span>Valkyrie Helmet</span> 
+                            <span> 160.7k+</span>
+                        </div>
+                        <button class="stock-btn brand-btn">$540</button>
+                    </div>
+
+                </div>
+                <div class="stock">
+                    <div class="stock-img-container">
+                        <img class="stock-img" src="./assests/sword-shield.png" >
+                    </div>
+                    <div class="stock-details">
+                        <div class="stock-name">
+                            <span>Valkyrie Helmet</span> 
+                            <span> 160.7k+</span>
+                        </div>
+                        <button class="stock-btn brand-btn">$540</button>
+                    </div>
+
+                </div>
+                <div class="stock">
+                    <div class="stock-img-container">
+                        <img class="stock-img" src="./assests/sword-shield.png" >
+                    </div>
+                    <div class="stock-details">
+                        <div class="stock-name">
+                            <span>Valkyrie Helmet</span> 
+                            <span> 160.7k+</span>
+                        </div>
+                        <button class="stock-btn brand-btn">$540</button>
+                    </div>
+
+                </div>
+                <div class="stock">
+                    <div class="stock-img-container">
+                        <img class="stock-img" src="./assests/sword-shield.png" >
+                    </div>
+                    <div class="stock-details">
+                        <div class="stock-name">
+                            <span>Valkyrie Helmet</span> 
+                            <span> 160.7k+</span>
+                        </div>
+                        <button class="stock-btn brand-btn">$540</button>
+                    </div>
+
+                </div>
+                <div class="stock">
+                    <div class="stock-img-container">
+                        <img class="stock-img" src="./assests/sword-shield.png" >
+                    </div>
+                    <div class="stock-details">
+                        <div class="stock-name">
+                            <span>Valkyrie Helmet</span> 
+                            <span> 160.7k+</span>
+                        </div>
+                        <button class="stock-btn brand-btn">$540</button>
+                    </div>
+
+                </div>
+                <div class="stock">
+                    <div class="stock-img-container">
+                        <img class="stock-img" src="./assests/sword-shield.png" >
+                    </div>
+                    <div class="stock-details">
+                        <div class="stock-name">
+                            <span>Valkyrie Helmet</span> 
+                            <span> 160.7k+</span>
+                        </div>
+                        <button class="stock-btn brand-btn">$540</button>
+                    </div>
+
+                </div>
+                <div class="stock">
+                    <div class="stock-img-container">
+                        <img class="stock-img" src="./assests/sword-shield.png" >
+                    </div>
+                    <div class="stock-details">
+                        <div class="stock-name">
+                            <span>Valkyrie Helmet</span> 
+                            <span> 160.7k+</span>
+                        </div>
+                        <button class="stock-btn brand-btn">$540</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- Stock Grid Ends -->
+
+    </main>
+    
+</body>
+</html>
